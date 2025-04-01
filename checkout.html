@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodDelight - Checkout</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">FoodDelight</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge">0</span></a></li>
+                <li id="authLink"><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="checkout-section">
+        <div class="container">
+            <h1>Checkout</h1>
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <div class="form-section">
+                            <h2><i class="fas fa-map-marker-alt"></i> Delivery Address</h2>
+                            <div class="saved-addresses" id="savedAddresses">
+                                <!-- Saved addresses will be loaded here -->
+                                <!-- Example:
+                                <div class="address-card">
+                                    <input type="radio" name="address" id="address1" value="address1" checked>
+                                    <label for="address1">
+                                        <strong>Home</strong>
+                                        <p>123 Main St, Apt 4B, New York, NY 10001</p>
+                                    </label>
+                                </div>
+                                -->
+                            </div>
+                            
+                            <button type="button" class="btn btn-small" id="addNewAddressBtn">
+                                <i class="fas fa-plus"></i> Add New Address
+                            </button>
+                            
+                            <div class="new-address-form" id="newAddressForm" style="display: none;">
+                                <div class="form-group">
+                                    <label for="addressName">Address Name (e.g., Home, Work)</label>
+                                    <input type="text" id="addressName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressLine1">Address Line 1</label>
+                                    <input type="text" id="addressLine1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressLine2">Address Line 2 (Optional)</label>
+                                    <input type="text" id="addressLine2">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <input type="text" id="state" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="zipCode">ZIP Code</label>
+                                        <input type="text" id="zipCode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-small" id="saveAddressBtn">Save Address</button>
+                                    <button type="button" class="btn btn-small btn-outline" id="cancelAddressBtn">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2><i class="fas fa-clock"></i> Delivery Time</h2>
+                            <div class="form-group">
+                                <select id="deliveryTime" required>
+                                    <option value="">Select delivery time</option>
+                                    <option value="asap">As soon as possible</option>
+                                    <option value="30min">Within 30 minutes</option>
+                                    <option value="60min">Within 1 hour</option>
+                                    <option value="scheduled">Schedule for later</option>
+                                </select>
+                            </div>
+                            <div id="scheduledTime" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="deliveryDate">Date</label>
+                                        <input type="date" id="deliveryDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deliveryHour">Time</label>
+                                        <input type="time" id="deliveryHour">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="creditCard" value="creditCard" checked>
+                                    <label for="creditCard">
+                                        <i class="far fa-credit-card"></i> Credit/Debit Card
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="paypal" value="paypal">
+                                    <label for="paypal">
+                                        <i class="fab fa-paypal"></i> PayPal
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="cash" value="cash">
+                                    <label for="cash">
+                                        <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div id="creditCardForm">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardExpiry">Expiry Date</label>
+                                        <input type="text" id="cardExpiry" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardCvc">CVC</label>
+                                        <input type="text" id="cardCvc" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card</label>
+                                    <input type="text" id="cardName">
+                                </div>
+                            </div>
+                            
+                            <div id="paypalForm" style="display: none;">
+                                <p>You will be redirected to PayPal to complete your payment after submitting your order.</p>
+                            </div>
+                            
+                            <div id="cashForm" style="display: none;">
+                                <p>Please have the exact amount ready at the time of delivery.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2><i class="fas fa-sticky-note"></i> Order Notes (Optional)</h2>
+                            <div class="form-group">
+                                <textarea id="orderNotes" placeholder="Special instructions for delivery or food preparation..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="orderItems">
+                        <!-- Order items will be loaded here -->
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">$2.99</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-item discount" id="discountRow" style="display: none;">
+                        <span>Discount</span>
+                        <span id="discount">-$0.00</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button type="button" class="btn btn-full" id="placeOrderBtn">Place Order</button>
+                    <div class="back-to-cart">
+                        <a href="cart.html"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 FoodDelight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="order-success-modal" id="orderSuccessModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been confirmed. Order #<span id="orderNumber">12345</span></p>
+            <p>Thank you for your order. You can track the status in your order history.</p>
+            <div class="modal-buttons">
+                <a href="order-history.html" class="btn">View Order</a>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html> 

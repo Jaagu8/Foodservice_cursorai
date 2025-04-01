@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodDelight - Order History</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">FoodDelight</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-list"></i> Categories <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="index.html#menu" data-category="pizza">Pizza</a>
+                        <a href="index.html#menu" data-category="burger">Burgers</a>
+                        <a href="index.html#menu" data-category="pasta">Pasta</a>
+                        <a href="index.html#menu" data-category="dessert">Desserts</a>
+                        <a href="index.html#menu" data-category="drink">Drinks</a>
+                    </div>
+                </li>
+                <li><a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge">0</span></a></li>
+                <li><a href="order-history.html" class="active"><i class="fas fa-history"></i> Orders</a></li>
+                <li id="authLink"><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="order-history-section">
+        <div class="container">
+            <h1>Order History</h1>
+            
+            <div class="login-prompt" id="loginPrompt">
+                <i class="fas fa-user-lock"></i>
+                <h2>Please Login</h2>
+                <p>You need to be logged in to view your order history.</p>
+                <a href="login.html" class="btn">Login Now</a>
+            </div>
+            
+            <div class="order-history-container" id="orderHistoryContainer">
+                <div class="order-filters">
+                    <div class="search-bar">
+                        <input type="text" id="orderSearch" placeholder="Search orders...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <label for="dateFilter">Filter by date:</label>
+                        <select id="dateFilter">
+                            <option value="all">All Time</option>
+                            <option value="week">Last Week</option>
+                            <option value="month">Last Month</option>
+                            <option value="3months">Last 3 Months</option>
+                            <option value="6months">Last 6 Months</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="orders-list" id="ordersList">
+                    <!-- Orders will be loaded here by JavaScript -->
+                    <!-- Example order structure -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #12345</div>
+                            <div class="order-date">July 15, 2023 | 7:30 PM</div>
+                            <div class="order-status delivered">Delivered</div>
+                        </div>
+                        <div class="order-content">
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <span class="item-quantity">2 ×</span>
+                                    <span class="item-name">Margherita Pizza</span>
+                                    <span class="item-price">$25.98</span>
+                                </div>
+                                <div class="order-item">
+                                    <span class="item-quantity">1 ×</span>
+                                    <span class="item-name">Garlic Bread</span>
+                                    <span class="item-price">$4.99</span>
+                                </div>
+                                <div class="order-item">
+                                    <span class="item-quantity">2 ×</span>
+                                    <span class="item-name">Coke</span>
+                                    <span class="item-price">$3.98</span>
+                                </div>
+                            </div>
+                            <div class="order-total">
+                                <span>Total:</span>
+                                <span class="total-price">$34.95</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-small order-details-btn">View Details</button>
+                            <button class="btn btn-small reorder-btn"><i class="fas fa-redo-alt"></i> Reorder</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #12340</div>
+                            <div class="order-date">July 10, 2023 | 1:15 PM</div>
+                            <div class="order-status delivered">Delivered</div>
+                        </div>
+                        <div class="order-content">
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <span class="item-quantity">1 ×</span>
+                                    <span class="item-name">Pepperoni Pizza</span>
+                                    <span class="item-price">$14.99</span>
+                                </div>
+                                <div class="order-item">
+                                    <span class="item-quantity">1 ×</span>
+                                    <span class="item-name">Cheese Sticks</span>
+                                    <span class="item-price">$6.99</span>
+                                </div>
+                                <div class="order-item">
+                                    <span class="item-quantity">1 ×</span>
+                                    <span class="item-name">Sprite</span>
+                                    <span class="item-price">$1.99</span>
+                                </div>
+                            </div>
+                            <div class="order-total">
+                                <span>Total:</span>
+                                <span class="total-price">$23.97</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-small order-details-btn">View Details</button>
+                            <button class="btn btn-small reorder-btn"><i class="fas fa-redo-alt"></i> Reorder</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="no-orders" id="noOrders" style="display: none;">
+                    <i class="fas fa-receipt"></i>
+                    <h2>No Orders Found</h2>
+                    <p>You haven't placed any orders yet.</p>
+                    <a href="index.html#menu" class="btn">Order Now</a>
+                </div>
+                
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers" id="pageNumbers">
+                        <span class="page-number active">1</span>
+                        <span class="page-number">2</span>
+                        <span class="page-number">3</span>
+                    </div>
+                    <button class="pagination-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="order-details-modal" id="orderDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order Details</h2>
+                <button class="close-btn" id="closeOrderDetails"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info">
+                    <div class="info-group">
+                        <h3><i class="fas fa-receipt"></i> Order Information</h3>
+                        <div class="info-row">
+                            <span>Order ID:</span>
+                            <span id="modalOrderId">12345</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Date & Time:</span>
+                            <span id="modalOrderDate">July 15, 2023 | 7:30 PM</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Status:</span>
+                            <span id="modalOrderStatus" class="status delivered">Delivered</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Payment Method:</span>
+                            <span id="modalPaymentMethod">Credit Card</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <h3><i class="fas fa-map-marker-alt"></i> Delivery Address</h3>
+                        <p id="modalDeliveryAddress">123 Main St, Apt 4B, New York, NY 10001</p>
+                    </div>
+                    
+                    <div class="info-group">
+                        <h3><i class="fas fa-utensils"></i> Order Items</h3>
+                        <div class="modal-order-items" id="modalOrderItems">
+                            <!-- Order items will be added here -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <h3><i class="fas fa-dollar-sign"></i> Payment Summary</h3>
+                        <div class="payment-summary">
+                            <div class="info-row">
+                                <span>Subtotal:</span>
+                                <span id="modalSubtotal">$34.95</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Delivery Fee:</span>
+                                <span id="modalDeliveryFee">$2.99</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Tax:</span>
+                                <span id="modalTax">$3.50</span>
+                            </div>
+                            <div class="info-row total">
+                                <span>Total:</span>
+                                <span id="modalTotal">$41.44</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="trackOrderBtn">Track Order</button>
+                <button class="btn" id="modalReorderBtn">Reorder</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodDelight</h3>
+                    <p>Delicious food delivered to your doorstep</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="order-history.html">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cuisine City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@fooddelight.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FoodDelight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/order-history.js"></script>
+</body>
+</html> 

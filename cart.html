@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodDelight - Cart</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">FoodDelight</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-list"></i> Categories <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="index.html#menu" data-category="pizza">Pizza</a>
+                        <a href="index.html#menu" data-category="burger">Burgers</a>
+                        <a href="index.html#menu" data-category="pasta">Pasta</a>
+                        <a href="index.html#menu" data-category="dessert">Desserts</a>
+                        <a href="index.html#menu" data-category="drink">Drinks</a>
+                    </div>
+                </li>
+                <li><a href="favorites.html"><i class="fas fa-heart"></i> Favorites</a></li>
+                <li><a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge">0</span></a></li>
+                <li><a href="order-history.html"><i class="fas fa-history"></i> Orders</a></li>
+                <li id="authLink"><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="cart-section">
+        <div class="container">
+            <h1>Your Cart</h1>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be dynamically added here by JavaScript -->
+                    <!-- Example item structure:
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="images/pizza.jpg" alt="Food Item">
+                        </div>
+                        <div class="item-details">
+                            <h3>Pizza Margherita</h3>
+                            <p class="item-description">Classic pizza with tomato, mozzarella and basil</p>
+                            <p class="item-price">$12.99</p>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn decrease"><i class="fas fa-minus"></i></button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn increase"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="item-total">
+                            <p>$12.99</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-item"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                
+                <div class="cart-empty" id="cartEmpty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't added any items to your cart yet.</p>
+                    <a href="index.html#menu" class="btn">Browse Menu</a>
+                </div>
+                
+                <div class="cart-summary" id="cartSummary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">$2.99</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <div class="promo-code">
+                        <input type="text" placeholder="Promo Code" id="promoCode">
+                        <button class="btn btn-small" id="applyPromo">Apply</button>
+                    </div>
+                    <button class="btn btn-full" id="checkoutBtn">Proceed to Checkout</button>
+                    <div class="continue-shopping">
+                        <a href="index.html#menu"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodDelight</h3>
+                    <p>Delicious food delivered to your doorstep</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="order-history.html">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cuisine City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@fooddelight.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FoodDelight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html> 
