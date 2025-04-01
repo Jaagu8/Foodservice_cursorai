@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodDelight - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-panel">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="../index.html">
+                    <i class="fas fa-utensils"></i>
+                    <span>FoodDelight</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li class="active">
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="food-items.html">
+                        <i class="fas fa-hamburger"></i>
+                        <span>Food Items</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="admin-info">
+                <div class="admin-avatar">
+                    <img src="../images/admin-avatar.jpg" alt="Admin">
+                </div>
+                <div class="admin-details">
+                    <h4>Admin User</h4>
+                    <p>admin@fooddelight.com</p>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="content">
+            <header class="top-bar">
+                <div class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="top-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="profile-dropdown">
+                        <img src="../images/admin-avatar.jpg" alt="Admin">
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <div class="date-filter">
+                        <select id="timeRange">
+                            <option value="today">Today</option>
+                            <option value="week" selected>This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-card-info">
+                                <h3>Total Orders</h3>
+                                <p class="stat-value">245</p>
+                                <p class="stat-change positive">+12.5% <span>vs last week</span></p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                        </div>
+                        <div class="stat-card-footer">
+                            <a href="orders.html">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-card-info">
+                                <h3>Total Revenue</h3>
+                                <p class="stat-value">$8,459</p>
+                                <p class="stat-change positive">+18.3% <span>vs last week</span></p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="stat-card-footer">
+                            <a href="analytics.html">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-card-info">
+                                <h3>New Users</h3>
+                                <p class="stat-value">32</p>
+                                <p class="stat-change positive">+5.2% <span>vs last week</span></p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </div>
+                        <div class="stat-card-footer">
+                            <a href="users.html">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-content">
+                            <div class="stat-card-info">
+                                <h3>Order Completion</h3>
+                                <p class="stat-value">94.2%</p>
+                                <p class="stat-change negative">-1.8% <span>vs last week</span></p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="stat-card-footer">
+                            <a href="analytics.html">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Sales Overview</h3>
+                            <div class="chart-actions">
+                                <button class="chart-btn active">Daily</button>
+                                <button class="chart-btn">Weekly</button>
+                                <button class="chart-btn">Monthly</button>
+                                <button class="chart-btn-options"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Popular Categories</h3>
+                            <div class="chart-actions">
+                                <button class="chart-btn-options"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-tables">
+                    <div class="recent-orders">
+                        <div class="table-header">
+                            <h3>Recent Orders</h3>
+                            <a href="orders.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="table-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD-001245</td>
+                                        <td>John Doe</td>
+                                        <td>Jul 21, 2023</td>
+                                        <td>$45.99</td>
+                                        <td><span class="status delivered">Delivered</span></td>
+                                        <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-001244</td>
+                                        <td>Jane Smith</td>
+                                        <td>Jul 21, 2023</td>
+                                        <td>$34.50</td>
+                                        <td><span class="status processing">Processing</span></td>
+                                        <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-001243</td>
+                                        <td>Robert Johnson</td>
+                                        <td>Jul 20, 2023</td>
+                                        <td>$25.99</td>
+                                        <td><span class="status delivered">Delivered</span></td>
+                                        <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-001242</td>
+                                        <td>Emily Davis</td>
+                                        <td>Jul 20, 2023</td>
+                                        <td>$62.75</td>
+                                        <td><span class="status delivered">Delivered</span></td>
+                                        <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-001241</td>
+                                        <td>Michael Wilson</td>
+                                        <td>Jul 19, 2023</td>
+                                        <td>$18.50</td>
+                                        <td><span class="status cancelled">Cancelled</span></td>
+                                        <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="popular-items">
+                        <div class="table-header">
+                            <h3>Popular Items</h3>
+                            <a href="food-items.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="table-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Sales</th>
+                                        <th>Price</th>
+                                        <th>Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="item-info">
+                                                <img src="../images/pizza.jpg" alt="Food">
+                                                <span>Margherita Pizza</span>
+                                            </div>
+                                        </td>
+                                        <td>125</td>
+                                        <td>$12.99</td>
+                                        <td>$1,623.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="item-info">
+                                                <img src="../images/burger.jpg" alt="Food">
+                                                <span>Classic Burger</span>
+                                            </div>
+                                        </td>
+                                        <td>98</td>
+                                        <td>$9.99</td>
+                                        <td>$979.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="item-info">
+                                                <img src="../images/pasta.jpg" alt="Food">
+                                                <span>Carbonara Pasta</span>
+                                            </div>
+                                        </td>
+                                        <td>87</td>
+                                        <td>$14.99</td>
+                                        <td>$1,304.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="item-info">
+                                                <img src="../images/dessert.jpg" alt="Food">
+                                                <span>Chocolate Cake</span>
+                                            </div>
+                                        </td>
+                                        <td>75</td>
+                                        <td>$7.99</td>
+                                        <td>$599.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="item-info">
+                                                <img src="../images/drink.jpg" alt="Food">
+                                                <span>Strawberry Smoothie</span>
+                                            </div>
+                                        </td>
+                                        <td>68</td>
+                                        <td>$5.99</td>
+                                        <td>$407.32</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/admin.js"></script>
+</body>
+</html> 

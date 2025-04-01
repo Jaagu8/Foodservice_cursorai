@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodDelight - Food Items Management</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-panel">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="../index.html">
+                    <i class="fas fa-utensils"></i>
+                    <span>FoodDelight</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="food-items.html">
+                        <i class="fas fa-hamburger"></i>
+                        <span>Food Items</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="admin-info">
+                <div class="admin-avatar">
+                    <img src="../images/admin-avatar.jpg" alt="Admin">
+                </div>
+                <div class="admin-details">
+                    <h4>Admin User</h4>
+                    <p>admin@fooddelight.com</p>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="content">
+            <header class="top-bar">
+                <div class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search food items...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="top-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="profile-dropdown">
+                        <img src="../images/admin-avatar.jpg" alt="Admin">
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="food-items-management">
+                <div class="page-header">
+                    <h1>Food Items Management</h1>
+                    <button class="btn add-item-btn" id="addNewItemBtn">
+                        <i class="fas fa-plus"></i> Add New Item
+                    </button>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="categoryFilter">Category:</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="burger">Burgers</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="dessert">Desserts</option>
+                            <option value="drink">Drinks</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortBy">Sort By:</label>
+                        <select id="sortBy">
+                            <option value="name">Name</option>
+                            <option value="price-low">Price (Low to High)</option>
+                            <option value="price-high">Price (High to Low)</option>
+                            <option value="popular">Popularity</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="food-items-grid">
+                    <!-- Food item cards will be dynamically added here -->
+                    <!-- Example item card -->
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/pizza.jpg" alt="Margherita Pizza">
+                            <div class="item-badge active">Active</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Margherita Pizza</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Pizza</p>
+                            <p class="item-description">Classic pizza with tomato, mozzarella, and basil</p>
+                            <div class="item-meta">
+                                <span class="item-price">$12.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/burger.jpg" alt="Classic Burger">
+                            <div class="item-badge active">Active</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Classic Burger</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Burger</p>
+                            <p class="item-description">Beef patty with lettuce, tomato, and cheese</p>
+                            <div class="item-meta">
+                                <span class="item-price">$9.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/pasta.jpg" alt="Carbonara Pasta">
+                            <div class="item-badge active">Active</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Carbonara Pasta</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Pasta</p>
+                            <p class="item-description">Spaghetti with creamy sauce, eggs, and bacon</p>
+                            <div class="item-meta">
+                                <span class="item-price">$14.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/dessert.jpg" alt="Chocolate Cake">
+                            <div class="item-badge active">Active</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Chocolate Cake</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Dessert</p>
+                            <p class="item-description">Rich chocolate cake with fudge frosting</p>
+                            <div class="item-meta">
+                                <span class="item-price">$7.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/drink.jpg" alt="Strawberry Smoothie">
+                            <div class="item-badge inactive">Inactive</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Strawberry Smoothie</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Drink</p>
+                            <p class="item-description">Fresh strawberries blended with yogurt and honey</p>
+                            <div class="item-meta">
+                                <span class="item-price">$5.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item-card">
+                        <div class="item-image">
+                            <img src="../images/pizza.jpg" alt="Pepperoni Pizza">
+                            <div class="item-badge active">Active</div>
+                            <div class="item-actions">
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-details">
+                            <h3>Pepperoni Pizza</h3>
+                            <p class="item-category"><i class="fas fa-tag"></i> Pizza</p>
+                            <p class="item-description">Classic pizza with pepperoni, cheese, and tomato sauce</p>
+                            <div class="item-meta">
+                                <span class="item-price">$13.99</span>
+                                <span class="item-rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers">
+                        <span class="page-number active">1</span>
+                        <span class="page-number">2</span>
+                        <span class="page-number">3</span>
+                    </div>
+                    <button class="pagination-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Add/Edit Item Modal -->
+            <div class="modal" id="itemModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="modalTitle">Add New Food Item</h2>
+                        <button class="close-btn" id="closeItemModal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="itemForm">
+                            <div class="form-group">
+                                <label for="itemName">Item Name</label>
+                                <input type="text" id="itemName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="itemCategory">Category</label>
+                                <select id="itemCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="pizza">Pizza</option>
+                                    <option value="burger">Burger</option>
+                                    <option value="pasta">Pasta</option>
+                                    <option value="dessert">Dessert</option>
+                                    <option value="drink">Drink</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="itemDescription">Description</label>
+                                <textarea id="itemDescription" required></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="itemPrice">Price ($)</label>
+                                    <input type="number" id="itemPrice" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="itemStatus">Status</label>
+                                    <select id="itemStatus" required>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="itemImage">Image</label>
+                                <div class="image-upload">
+                                    <input type="file" id="itemImage" accept="image/*">
+                                    <div class="image-preview" id="imagePreview">
+                                        <img src="../images/placeholder.jpg" alt="Preview" id="previewImg">
+                                        <span>Click to upload image</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Options & Extras</h3>
+                                <div class="options-container" id="optionsContainer">
+                                    <!-- Options will be added here dynamically -->
+                                    <div class="option-item">
+                                        <input type="text" placeholder="Option name (e.g., Size)">
+                                        <button type="button" class="add-option-value"><i class="fas fa-plus"></i></button>
+                                        <div class="option-values">
+                                            <div class="option-value">
+                                                <input type="text" placeholder="Value (e.g., Small)">
+                                                <input type="number" placeholder="Price" step="0.01" min="0">
+                                                <button type="button" class="remove-option-value"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-small" id="addOptionBtn">Add Option</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancelItemBtn">Cancel</button>
+                        <button class="btn" id="saveItemBtn">Save Item</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Delete Confirmation Modal -->
+            <div class="modal" id="deleteModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Confirm Deletion</h2>
+                        <button class="close-btn" id="closeDeleteModal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete <strong id="deleteItemName">this item</strong>?</p>
+                        <p class="warning">This action cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancelDeleteBtn">Cancel</button>
+                        <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/admin.js"></script>
+    <script src="../js/food-items.js"></script>
+</body>
+</html> 
